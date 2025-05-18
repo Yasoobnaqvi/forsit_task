@@ -1,0 +1,386 @@
+{
+    "info": {
+      "name": "E-commerce Admin API Tests",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "1. Categories",
+        "item": [
+          {
+            "name": "Get All Categories",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/categories/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Category By ID",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/categories/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Create Category",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/categories/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Toys\",\n    \"description\": \"Children's toys and games\"\n}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "2. Products",
+        "item": [
+          {
+            "name": "Get All Products",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/products/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Products By Category",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:6061/api/v1/products/?category_id=1",
+                "host": ["localhost"],
+                "port": "6061",
+                "path": ["api", "v1", "products", ""],
+                "query": [
+                  {
+                    "key": "category_id",
+                    "value": "1"
+                  }
+                ]
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Product By ID",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/products/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Create Product",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/products/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Tablet\",\n    \"description\": \"10-inch touchscreen tablet\",\n    \"price\": 299.99,\n    \"sku\": \"ELEC-006\",\n    \"category_id\": 1\n}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "3. Inventory",
+        "item": [
+          {
+            "name": "Get All Inventory",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/inventory/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Inventory By Product ID",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/inventory/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Create Inventory",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/inventory/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"product_id\": 6,\n    \"quantity\": 25,\n    \"low_stock_threshold\": 5\n}"
+              }
+            }
+          },
+          {
+            "name": "Update Inventory",
+            "request": {
+              "method": "PUT",
+              "url": "http://localhost:6061/api/v1/inventory/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"quantity\": 45,\n    \"low_stock_threshold\": 10\n}"
+              }
+            }
+          },
+          {
+            "name": "Get Low Stock Products",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/inventory/low-stock/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Inventory History",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/inventory/history/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "4. Sales",
+        "item": [
+          {
+            "name": "Get All Sales",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/sales/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Sale By ID",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/sales/1",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Create Sale",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/sales/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"order_id\": \"ORD-TEST-123\",\n    \"total_amount\": 1039.98,\n    \"marketplace\": \"Amazon\",\n    \"items\": [\n        {\n            \"product_id\": 1,\n            \"quantity\": 1,\n            \"unit_price\": 999.99,\n            \"subtotal\": 999.99\n        },\n        {\n            \"product_id\": 2,\n            \"quantity\": 2,\n            \"unit_price\": 19.99,\n            \"subtotal\": 39.98\n        }\n    ]\n}"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "5. Analytics",
+        "item": [
+          {
+            "name": "Get Sales Summary",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:6061/api/v1/analytics/sales/?start_date=2023-01-01&end_date=2023-12-31",
+                "host": ["localhost"],
+                "port": "6061",
+                "path": ["api", "v1", "analytics", "sales", ""],
+                "query": [
+                  {
+                    "key": "start_date",
+                    "value": "2023-01-01"
+                  },
+                  {
+                    "key": "end_date",
+                    "value": "2023-12-31"
+                  }
+                ]
+              },
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Daily Revenue",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/analytics/revenue/day",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Weekly Revenue",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/analytics/revenue/week",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Monthly Revenue",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/analytics/revenue/month",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Yearly Revenue",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:6061/api/v1/analytics/revenue/year",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Get Product Sales",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/analytics/product-sales/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"start_date\": \"2023-01-01\",\n    \"end_date\": \"2023-12-31\",\n    \"product_id\": 1\n}"
+              }
+            }
+          },
+          {
+            "name": "Get Category Sales",
+            "request": {
+              "method": "POST",
+              "url": "http://localhost:6061/api/v1/analytics/product-sales/",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"start_date\": \"2023-01-01\",\n    \"end_date\": \"2023-12-31\",\n    \"category_id\": 1\n}"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
