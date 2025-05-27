@@ -1,6 +1,6 @@
 # E-commerce Admin API
 
-A back-end API that powers a web admin dashboard for e-commerce managers, providing detailed insights into sales, revenue, and inventory status, as well as allowing new product registration.
+A back-end API that powers a web admin dashboard for e-commerce managers, providing detailed insights into sales, revenue, and inventory status, as well as allowing new product registration. The framework used for this is FastAPI(Python) and APIs are RESTful. The DB is Postgres.
 
 ## Features
 
