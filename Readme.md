@@ -114,6 +114,3 @@ To run the complete test suite:
 
 For more details about the test suite, see `services/dashboard/tests/README.md`.
 
-## License
-
-This project is licensed under the MIT License.
